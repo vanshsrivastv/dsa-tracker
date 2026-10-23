@@ -338,6 +338,23 @@
       ["intersection-of-multiple-arrays", "Intersection of Multiple Arrays"],
       ["find-the-difference-of-two-arrays", "Find the Difference of Two Arrays"],
       ["intersection-of-two-arrays-ii", "Intersection of Two Arrays II"]
+    ]},
+    { id: "arraylist4", name: "ArrayList practice 4", hint: "Level up: 3 Easy, then Medium. Lists of lists, backtracking and interval problems. Easiest to hardest.", items: [
+      ["shift-2d-grid", "Shift 2D Grid"],
+      ["find-common-characters", "Find Common Characters"],
+      ["minimum-index-sum-of-two-lists", "Minimum Index Sum of Two Lists"],
+      ["sequential-digits", "Sequential Digits"],
+      ["lexicographical-numbers", "Lexicographical Numbers"],
+      ["spiral-matrix", "Spiral Matrix"],
+      ["find-all-duplicates-in-an-array", "Find All Duplicates in an Array"],
+      ["majority-element-ii", "Majority Element II"],
+      ["partition-labels", "Partition Labels"],
+      ["subsets", "Subsets"],
+      ["group-anagrams", "Group Anagrams"],
+      ["merge-intervals", "Merge Intervals"],
+      ["letter-combinations-of-a-phone-number", "Letter Combinations of a Phone Number"],
+      ["combination-sum", "Combination Sum"],
+      ["3sum", "3Sum"]
     ]}
   ];
 
@@ -476,9 +493,10 @@
     return GROUPS.filter(function (g) { return g.id === gid; })[0].items.map(function (i) { return i[0]; });
   }
   function allIds() {
-    var out = [];
+    var out = [], seen = {};
     GROUPS.forEach(function (g) { out = out.concat(listIds(g.id)); });
-    return out.concat(listIds("custom"));
+    out = out.concat(listIds("custom"));
+    return out.filter(function (id) { if (seen[id]) return false; seen[id] = true; return true; });
   }
 
   var WEEKS = 26, MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
